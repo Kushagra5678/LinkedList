@@ -9,6 +9,14 @@ public class MyLinkedList<K> {
 		tail = null;
 	}
 
+	public INode getHead() {
+		return head;
+	}
+
+	public INode getTail() {
+		return tail;
+	}
+
 	public void add(INode myNode) {
 		if (this.tail == null)
 			this.tail = myNode;
@@ -18,6 +26,12 @@ public class MyLinkedList<K> {
 			this.tail.setNext(myNode);
 			this.tail = myNode;
 		}
+	}
+
+	public void insertMiddle(INode node, INode newnode) {
+		INode temp = node.getNext();
+		node.setNext(newnode);
+		newnode.setNext(temp);
 	}
 
 	public void printList() {
