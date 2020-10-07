@@ -51,9 +51,25 @@ public class MyLinkedListTest {
 		myLinkedList.add(MySecondNode);
 		myLinkedList.add(MyThirdNode);
 		myLinkedList.printList();
-		INode result=myLinkedList.pop();
+		INode result=myLinkedList.popFront();
 		myLinkedList.printList();
 		assertEquals(MyFirstNode,result);
 	}
+	
+	@Test
+	public void WhenLastNodePoppedReturnsLastNode() {
+		MyNode<Integer> MyFirstNode = new MyNode<>(56);
+		MyNode<Integer> MySecondNode = new MyNode<>(30);
+		MyNode<Integer> MyThirdNode = new MyNode<>(70);
+		MyLinkedList myLinkedList = new MyLinkedList();
+		myLinkedList.add(MyFirstNode);
+		myLinkedList.add(MySecondNode);
+		myLinkedList.add(MyThirdNode);
+		myLinkedList.printList();
+		INode result=myLinkedList.popLast();
+		myLinkedList.printList();
+		assertEquals(MyThirdNode,result);
+	}
+
 
 }
