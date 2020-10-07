@@ -15,9 +15,21 @@ public class MyLinkedList<K> {
 		if (this.head == null)
 			this.head = myNode;
 		else {
-			INode tempNode = this.head;
-			this.head = myNode;
-			this.head.setNext(tempNode);
+			this.tail.setNext(myNode);
+			this.tail = myNode;
 		}
+	}
+
+	public void printList() {
+		StringBuffer myNodes = new StringBuffer("My Nodes : ");
+		INode temp = head;
+		while (temp.getNext() != null) {
+			myNodes.append(temp.getKey());
+			if (!temp.equals(tail))
+				myNodes.append("->");
+			temp = temp.getNext();
+		}
+		myNodes.append(temp.getKey());
+		System.out.println(myNodes);
 	}
 }
