@@ -40,7 +40,7 @@ public class MyLinkedListTest {
 				&& myLinkedList.getTail().equals(MyThirdNode);
 		assertEquals(true, result);
 	}
-	
+
 	@Test
 	public void NodeWhenPoppedReturnsNewList() {
 		MyNode<Integer> MyFirstNode = new MyNode<>(56);
@@ -51,11 +51,25 @@ public class MyLinkedListTest {
 		myLinkedList.add(MySecondNode);
 		myLinkedList.add(MyThirdNode);
 		myLinkedList.printList();
-		INode result=myLinkedList.popFront();
+		INode result = myLinkedList.popFront();
 		myLinkedList.printList();
-		assertEquals(MyFirstNode,result);
+		assertEquals(MyFirstNode, result);
 	}
-	
+
+	@Test
+	public void WhenSearchKeyReturnsNode() {
+		MyNode<Integer> MyFirstNode = new MyNode<>(56);
+		MyNode<Integer> MySecondNode = new MyNode<>(30);
+		MyNode<Integer> MyThirdNode = new MyNode<>(70);
+		MyLinkedList myLinkedList = new MyLinkedList();
+		myLinkedList.add(MyFirstNode);
+		myLinkedList.add(MySecondNode);
+		myLinkedList.add(MyThirdNode);
+		INode result = myLinkedList.searchNode(30);
+		System.out.println(result.getKey());
+		assertEquals(MySecondNode, result);
+	}
+
 	@Test
 	public void WhenLastNodePoppedReturnsLastNode() {
 		MyNode<Integer> MyFirstNode = new MyNode<>(56);
@@ -66,10 +80,9 @@ public class MyLinkedListTest {
 		myLinkedList.add(MySecondNode);
 		myLinkedList.add(MyThirdNode);
 		myLinkedList.printList();
-		INode result=myLinkedList.popLast();
+		INode result = myLinkedList.popLast();
 		myLinkedList.printList();
-		assertEquals(MyThirdNode,result);
+		assertEquals(MyThirdNode, result);
 	}
-
 
 }

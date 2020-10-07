@@ -33,7 +33,7 @@ public class MyLinkedList<K> {
 		node.setNext(newnode);
 		newnode.setNext(temp);
 	}
-	
+
 	public INode popFront() {
 		INode temp = this.head;
 		this.head = temp.getNext();
@@ -52,19 +52,32 @@ public class MyLinkedList<K> {
 		myNodes.append(temp.getKey());
 		System.out.println(myNodes);
 	}
-	public INode popLast() {
+	
+	public INode searchNode(Integer i) {
 		INode temp=this.head;
-		INode temp2 = null;
 		while(temp.getNext()!=null)
 		{
-			if(temp.getNext().equals(this.tail))
-			{
-			temp2=temp.getNext();
-			this.tail=temp;
-			temp.setNext(null);
-			break;
-			}
+			if(temp.getKey().equals(i))
+				break;
 			temp=temp.getNext();
+		}
+		if(!temp.equals(this.tail))
+		return temp;
+		else
+			return null;
+	}
+
+	public INode popLast() {
+		INode temp = this.head;
+		INode temp2 = null;
+		while (temp.getNext() != null) {
+			if (temp.getNext().equals(this.tail)) {
+				temp2 = temp.getNext();
+				this.tail = temp;
+				temp.setNext(null);
+				break;
+			}
+			temp = temp.getNext();
 		}
 		return temp2;
 	}
