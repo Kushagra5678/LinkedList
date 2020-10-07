@@ -53,6 +53,11 @@ public class MyLinkedList<K> {
 		System.out.println(myNodes);
 	}
 	
+	public void insertBySearch(Integer i, INode newNode) {
+		insertMiddle(searchNode(i), newNode);
+
+	}
+	
 	public INode searchNode(Integer i) {
 		INode temp=this.head;
 		while(temp.getNext()!=null)
