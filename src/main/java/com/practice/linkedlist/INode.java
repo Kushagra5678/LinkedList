@@ -1,6 +1,6 @@
 package com.practice.linkedlist;
 
-public interface INode<K> {
+public interface INode<K extends Comparable>  {
 	K getKey();
 
 	void setKey(K key);
